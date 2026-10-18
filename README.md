@@ -26,8 +26,8 @@ graph TD
     
     Writer -->|提交初稿| Critic[🧐 审稿人 Critic]
     
-    Critic -->|❌ 发现问题 (打回)| Writer
-    Critic -->|✅ 审查通过 (PASS)| End((输出最终报告))
+    Critic -->|"❌ 发现问题 (打回)"| Writer
+    Critic -->|"✅ 审查通过 (PASS)"| End((输出最终报告))
     
     style Planner fill:#e1f5fe,stroke:#03a9f4
     style Researcher fill:#e8f5e9,stroke:#4caf50
