@@ -33,17 +33,8 @@ graph TD
     style Researcher fill:#e8f5e9,stroke:#4caf50
     style Writer fill:#fff3e0,stroke:#ff9800
     style Critic fill:#ffebee,stroke:#f44336
-🚀 本地运行指南
 
-1. 环境准备
-
-```bash
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-2. 配置 API 密钥
+配置 API 密钥
 
 在项目根目录创建 .env 文件，填入大模型与搜索工具的密钥：
 
@@ -52,8 +43,7 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
 OPENAI_BASE_URL=https://api.deepseek.com/v1
 TAVILY_API_KEY=tvly-xxxxxxxxxxxxxxxx
 ```
-
-3. 启动应用
+启动应用
 
 ```bash
 streamlit run app.py
