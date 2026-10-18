@@ -33,3 +33,49 @@ graph TD
     style Researcher fill:#e8f5e9,stroke:#4caf50
     style Writer fill:#fff3e0,stroke:#ff9800
     style Critic fill:#ffebee,stroke:#f44336
+🚀 本地运行指南
+
+1. 环境准备
+
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+2. 配置 API 密钥
+
+在项目根目录创建 .env 文件，填入大模型与搜索工具的密钥：
+
+```env
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
+OPENAI_BASE_URL=https://api.deepseek.com/v1
+TAVILY_API_KEY=tvly-xxxxxxxxxxxxxxxx
+```
+
+3. 启动应用
+
+```bash
+streamlit run app.py
+```
+
+📁 项目结构
+
+```text
+multi-agent-demo/
+├── .env                # 密钥配置
+├── app.py              # Streamlit 前端界面
+├── graph.py            # LangGraph 有向图组装
+├── nodes.py            # 四大 Agent 的具体实现
+├── state.py            # 全局状态定义
+├── requirements.txt    # 依赖清单
+└── README.md
+```
+
+💡 开发心得与思考
+
+1. 状态管理 (State) 是多 Agent 的核心：通过 TypedDict 定义全局状态，让所有 Agent 共享同一个“白板”，是让协作顺畅的关键。
+2. 条件边 (Conditional Edge) 是灵魂：它打破了线性流程的限制，让系统具备了“打回重写”的动态路由能力。
+3. 防范大模型“跑题”：在真实测试中，如果搜索失败返回空数据，撰稿人 Agent 极易将“信息缺失”写成哲学文章。通过在 Prompt 中加入强主题约束和降级指令，成功解决了这一工程痛点。
+
+```
