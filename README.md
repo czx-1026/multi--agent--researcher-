@@ -34,20 +34,6 @@ graph TD
     style Writer fill:#fff3e0,stroke:#ff9800
     style Critic fill:#ffebee,stroke:#f44336
 
-配置 API 密钥
-
-在项目根目录创建 .env 文件，填入大模型与搜索工具的密钥：
-
-```env
-OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
-OPENAI_BASE_URL=https://api.deepseek.com/v1
-TAVILY_API_KEY=tvly-xxxxxxxxxxxxxxxx
-```
-启动应用
-
-```bash
-streamlit run app.py
-```
 
 📁 项目结构
 
